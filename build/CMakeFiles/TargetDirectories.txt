@@ -1,0 +1,3 @@
+/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles/rebuild_cache.dir
+/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles/main.dir
+/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles/edit_cache.dir
