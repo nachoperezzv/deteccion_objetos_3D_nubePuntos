@@ -13,7 +13,15 @@
 #include <boost/algorithm/string.hpp>
 #include <math.h>
 
+#include <pcl/segmentation/sac_segmentation.h>
+#include <pcl/sample_consensus/ransac.h>
+#include <pcl/sample_consensus/sac_model_plane.h>
+#include <pcl/PointIndices.h>
+#include <pcl/ModelCoefficients.h>
+#include <pcl/filters/extract_indices.h>
+
 using namespace std;
+using namespace pcl;
 
 void 	showCloud		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
 void 	spawnViewer		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr);
