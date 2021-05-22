@@ -1,0 +1,41 @@
+//Paginas de apoyo 
+	
+	Spawn Viewer and ShowCloud
+		- https://github.com/UnaNancyOwen/Tutorials/blob/master/tutorials/pcl_visualizer/pcl_visualizer_demo.cpp
+		- http://www.dccia.ua.es/dccia/inf/asignaturas/Vision/view3D.cpp
+		- https://pointclouds.org/documentation/classpcl_1_1visualization_1_1_p_c_l_visualizer.html
+		- https://pointclouds.org/documentation/classpcl_1_1visualization_1_1_point_cloud_color_handler_custom.html
+
+
+	Eliminación de planos dominantes:
+
+		- https://pointclouds.org/documentation/classpcl_1_1_p_c_l_base.html#details
+		- https://pointclouds.org/documentation/classpcl_1_1_s_a_c_segmentation.html
+		- https://cpp.hotexamples.com/es/site/file?hash=0xbf346dc849ffd1d92c871d7dbdf634596e962b1a10cf6ff6b7aa1f6fd05723c7&fullName=src/laserlines/find_planes.cpp&project=mikcol/openrov
+
+
+
+	Busqueda de KeyPoints y	Busqueda de Descriptores
+
+		- https://programmerclick.com/article/51931605367/
+
+
+
+	Emparejamientos y Eliminar emparejamientos incorrectos y transformada
+
+		- https://pointclouds.org/documentation/classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus.html
+		- https://pointclouds.org/documentation/classpcl_1_1registration_1_1_correspondence_rejector_sample_consensus.html
+
+
+
+	Matriz de transformación
+
+		- https://eigen.tuxfamily.org/dox/group__TutorialMatrixClass.html
+
+
+
+	Refinar el resultado con ICP
+
+		- https://cpp.hotexamples.com/es/examples/-/IterativeClosestPoint/setInputSource/cpp-iterativeclosestpoint-setinputsource-method-examples.html
+		- https://pointclouds.org/documentation/classpcl_1_1_iterative_closest_point.html
+		- https://programmerclick.com/article/7816164431/
