@@ -264,10 +264,12 @@ CMakeFiles/main.dir/functions.cpp.o
  /usr/include/pcl-1.8/pcl/common/impl/copy_point.hpp
  /usr/include/pcl-1.8/pcl/common/impl/eigen.hpp
  /usr/include/pcl-1.8/pcl/common/impl/file_io.hpp
+ /usr/include/pcl-1.8/pcl/common/impl/intensity.hpp
  /usr/include/pcl-1.8/pcl/common/impl/io.hpp
  /usr/include/pcl-1.8/pcl/common/impl/norms.hpp
  /usr/include/pcl-1.8/pcl/common/impl/projection_matrix.hpp
  /usr/include/pcl-1.8/pcl/common/impl/transforms.hpp
+ /usr/include/pcl-1.8/pcl/common/intensity.h
  /usr/include/pcl-1.8/pcl/common/io.h
  /usr/include/pcl-1.8/pcl/common/norms.h
  /usr/include/pcl-1.8/pcl/common/point_operators.h
@@ -281,8 +283,11 @@ CMakeFiles/main.dir/functions.cpp.o
  /usr/include/pcl-1.8/pcl/correspondence.h
  /usr/include/pcl-1.8/pcl/exceptions.h
  /usr/include/pcl-1.8/pcl/features/board.h
+ /usr/include/pcl-1.8/pcl/features/boundary.h
+ /usr/include/pcl-1.8/pcl/features/eigen.h
  /usr/include/pcl-1.8/pcl/features/feature.h
  /usr/include/pcl-1.8/pcl/features/impl/board.hpp
+ /usr/include/pcl-1.8/pcl/features/impl/boundary.hpp
  /usr/include/pcl-1.8/pcl/features/impl/feature.hpp
  /usr/include/pcl-1.8/pcl/features/impl/integral_image2D.hpp
  /usr/include/pcl-1.8/pcl/features/impl/integral_image_normal.hpp
@@ -301,8 +306,10 @@ CMakeFiles/main.dir/functions.cpp.o
  /usr/include/pcl-1.8/pcl/filters/impl/filter.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+ /usr/include/pcl-1.8/pcl/filters/impl/uniform_sampling.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
  /usr/include/pcl-1.8/pcl/filters/passthrough.h
+ /usr/include/pcl-1.8/pcl/filters/uniform_sampling.h
  /usr/include/pcl-1.8/pcl/filters/voxel_grid.h
  /usr/include/pcl-1.8/pcl/for_each_type.h
  /usr/include/pcl-1.8/pcl/geometry/planar_polygon.h
@@ -327,8 +334,14 @@ CMakeFiles/main.dir/functions.cpp.o
  /usr/include/pcl-1.8/pcl/kdtree/kdtree_flann.h
  /usr/include/pcl-1.8/pcl/keypoints/harris_3d.h
  /usr/include/pcl-1.8/pcl/keypoints/impl/harris_3d.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/iss_3d.hpp
  /usr/include/pcl-1.8/pcl/keypoints/impl/keypoint.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/sift_keypoint.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/susan.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/iss_3d.h
  /usr/include/pcl-1.8/pcl/keypoints/keypoint.h
+ /usr/include/pcl-1.8/pcl/keypoints/sift_keypoint.h
+ /usr/include/pcl-1.8/pcl/keypoints/susan.h
  /usr/include/pcl-1.8/pcl/octree/impl/octree_base.hpp
  /usr/include/pcl-1.8/pcl/octree/impl/octree_iterator.hpp
  /usr/include/pcl-1.8/pcl/octree/impl/octree_pointcloud.hpp
@@ -864,10 +877,12 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/pcl-1.8/pcl/common/impl/copy_point.hpp
  /usr/include/pcl-1.8/pcl/common/impl/eigen.hpp
  /usr/include/pcl-1.8/pcl/common/impl/file_io.hpp
+ /usr/include/pcl-1.8/pcl/common/impl/intensity.hpp
  /usr/include/pcl-1.8/pcl/common/impl/io.hpp
  /usr/include/pcl-1.8/pcl/common/impl/norms.hpp
  /usr/include/pcl-1.8/pcl/common/impl/projection_matrix.hpp
  /usr/include/pcl-1.8/pcl/common/impl/transforms.hpp
+ /usr/include/pcl-1.8/pcl/common/intensity.h
  /usr/include/pcl-1.8/pcl/common/io.h
  /usr/include/pcl-1.8/pcl/common/norms.h
  /usr/include/pcl-1.8/pcl/common/point_operators.h
@@ -881,8 +896,11 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/pcl-1.8/pcl/correspondence.h
  /usr/include/pcl-1.8/pcl/exceptions.h
  /usr/include/pcl-1.8/pcl/features/board.h
+ /usr/include/pcl-1.8/pcl/features/boundary.h
+ /usr/include/pcl-1.8/pcl/features/eigen.h
  /usr/include/pcl-1.8/pcl/features/feature.h
  /usr/include/pcl-1.8/pcl/features/impl/board.hpp
+ /usr/include/pcl-1.8/pcl/features/impl/boundary.hpp
  /usr/include/pcl-1.8/pcl/features/impl/feature.hpp
  /usr/include/pcl-1.8/pcl/features/impl/integral_image2D.hpp
  /usr/include/pcl-1.8/pcl/features/impl/integral_image_normal.hpp
@@ -901,8 +919,10 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/pcl-1.8/pcl/filters/impl/filter.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/filter_indices.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/passthrough.hpp
+ /usr/include/pcl-1.8/pcl/filters/impl/uniform_sampling.hpp
  /usr/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
  /usr/include/pcl-1.8/pcl/filters/passthrough.h
+ /usr/include/pcl-1.8/pcl/filters/uniform_sampling.h
  /usr/include/pcl-1.8/pcl/filters/voxel_grid.h
  /usr/include/pcl-1.8/pcl/for_each_type.h
  /usr/include/pcl-1.8/pcl/geometry/planar_polygon.h
@@ -927,8 +947,14 @@ CMakeFiles/main.dir/main.cpp.o
  /usr/include/pcl-1.8/pcl/kdtree/kdtree_flann.h
  /usr/include/pcl-1.8/pcl/keypoints/harris_3d.h
  /usr/include/pcl-1.8/pcl/keypoints/impl/harris_3d.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/iss_3d.hpp
  /usr/include/pcl-1.8/pcl/keypoints/impl/keypoint.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/sift_keypoint.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/impl/susan.hpp
+ /usr/include/pcl-1.8/pcl/keypoints/iss_3d.h
  /usr/include/pcl-1.8/pcl/keypoints/keypoint.h
+ /usr/include/pcl-1.8/pcl/keypoints/sift_keypoint.h
+ /usr/include/pcl-1.8/pcl/keypoints/susan.h
  /usr/include/pcl-1.8/pcl/octree/impl/octree_base.hpp
  /usr/include/pcl-1.8/pcl/octree/impl/octree_iterator.hpp
  /usr/include/pcl-1.8/pcl/octree/impl/octree_pointcloud.hpp

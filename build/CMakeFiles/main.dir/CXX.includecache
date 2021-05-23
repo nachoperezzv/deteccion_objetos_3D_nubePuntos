@@ -19,6 +19,8 @@ math.h
 -
 Eigen/Dense
 -
+vector
+-
 boost/thread/thread.hpp
 -
 pcl/common/common_headers.h
@@ -65,9 +67,17 @@ pcl/visualization/point_cloud_color_handlers.h
 -
 pcl/visualization/common/common.h
 -
+pcl/keypoints/keypoint.h
+-
 pcl/keypoints/harris_3d.h
 -
-pcl/keypoints/keypoint.h
+pcl/keypoints/sift_keypoint.h
+-
+pcl/keypoints/iss_3d.h
+-
+pcl/keypoints/susan.h
+-
+pcl/filters/uniform_sampling.h
 -
 pcl/registration/correspondence_rejection_sample_consensus.h
 -
@@ -1492,6 +1502,10 @@ pcl/console/print.h
 
 /usr/include/pcl-1.8/pcl/common/impl/file_io.hpp
 
+/usr/include/pcl-1.8/pcl/common/impl/intensity.hpp
+pcl/point_types.h
+-
+
 /usr/include/pcl-1.8/pcl/common/impl/io.hpp
 pcl/common/concatenate.h
 -
@@ -1511,6 +1525,10 @@ pcl/cloud_iterator.h
 -
 
 /usr/include/pcl-1.8/pcl/common/impl/transforms.hpp
+
+/usr/include/pcl-1.8/pcl/common/intensity.h
+pcl/common/impl/intensity.hpp
+-
 
 /usr/include/pcl-1.8/pcl/common/io.h
 string
@@ -1636,6 +1654,20 @@ pcl/features/feature.h
 pcl/features/impl/board.hpp
 -
 
+/usr/include/pcl-1.8/pcl/features/boundary.h
+pcl/features/eigen.h
+-
+pcl/features/feature.h
+-
+pcl/features/impl/boundary.hpp
+-
+
+/usr/include/pcl-1.8/pcl/features/eigen.h
+Eigen/StdVector
+-
+Eigen/Geometry
+-
+
 /usr/include/pcl-1.8/pcl/features/feature.h
 boost/function.hpp
 -
@@ -1654,6 +1686,12 @@ pcl/features/board.h
 utility
 -
 pcl/common/transforms.h
+-
+
+/usr/include/pcl-1.8/pcl/features/impl/boundary.hpp
+pcl/features/boundary.h
+-
+cfloat
 -
 
 /usr/include/pcl-1.8/pcl/features/impl/feature.hpp
@@ -1796,6 +1834,12 @@ pcl/filters/passthrough.h
 pcl/common/io.h
 -
 
+/usr/include/pcl-1.8/pcl/filters/impl/uniform_sampling.hpp
+pcl/common/common.h
+-
+pcl/filters/uniform_sampling.h
+-
+
 /usr/include/pcl-1.8/pcl/filters/impl/voxel_grid.hpp
 pcl/common/centroid.h
 -
@@ -1810,6 +1854,14 @@ pcl/filters/voxel_grid.h
 pcl/filters/filter_indices.h
 -
 pcl/filters/impl/passthrough.hpp
+-
+
+/usr/include/pcl-1.8/pcl/filters/uniform_sampling.h
+pcl/filters/filter.h
+-
+boost/unordered_map.hpp
+-
+pcl/filters/impl/uniform_sampling.hpp
 -
 
 /usr/include/pcl-1.8/pcl/filters/voxel_grid.h
@@ -2120,7 +2172,39 @@ pcl/common/centroid.h
 xmmintrin.h
 -
 
+/usr/include/pcl-1.8/pcl/keypoints/impl/iss_3d.hpp
+pcl/features/boundary.h
+-
+pcl/features/normal_3d.h
+-
+pcl/features/integral_image_normal.h
+-
+pcl/keypoints/iss_3d.h
+-
+
 /usr/include/pcl-1.8/pcl/keypoints/impl/keypoint.hpp
+
+/usr/include/pcl-1.8/pcl/keypoints/impl/sift_keypoint.hpp
+pcl/keypoints/sift_keypoint.h
+-
+pcl/common/io.h
+-
+pcl/filters/voxel_grid.h
+-
+
+/usr/include/pcl-1.8/pcl/keypoints/impl/susan.hpp
+pcl/keypoints/susan.h
+-
+pcl/features/normal_3d.h
+-
+pcl/features/integral_image_normal.h
+-
+
+/usr/include/pcl-1.8/pcl/keypoints/iss_3d.h
+pcl/keypoints/keypoint.h
+-
+pcl/keypoints/impl/iss_3d.hpp
+-
 
 /usr/include/pcl-1.8/pcl/keypoints/keypoint.h
 pcl/pcl_base.h
@@ -2134,6 +2218,20 @@ pcl/search/pcl_search.h
 pcl/pcl_config.h
 -
 pcl/keypoints/impl/keypoint.hpp
+-
+
+/usr/include/pcl-1.8/pcl/keypoints/sift_keypoint.h
+pcl/keypoints/keypoint.h
+-
+pcl/keypoints/impl/sift_keypoint.hpp
+-
+
+/usr/include/pcl-1.8/pcl/keypoints/susan.h
+pcl/keypoints/keypoint.h
+-
+pcl/common/intensity.h
+-
+pcl/keypoints/impl/susan.hpp
 -
 
 /usr/include/pcl-1.8/pcl/octree/impl/octree_base.hpp

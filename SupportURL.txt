@@ -17,8 +17,11 @@
 
 	Busqueda de KeyPoints y	Busqueda de Descriptores
 
-		- https://programmerclick.com/article/51931605367/
+		· HARRIS 3D
+			- https://programmerclick.com/article/51931605367/
 
+		· SIFT3D
+			- https://github.com/PointCloudLibrary/pcl/blob/master/examples/keypoints/example_sift_keypoint_estimation.cpp
 
 
 	Emparejamientos y Eliminar emparejamientos incorrectos y transformada

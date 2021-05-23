@@ -5,6 +5,7 @@
 #include <chrono>
 #include <math.h>
 #include <Eigen/Dense>
+#include <vector>
 
 #include <boost/thread/thread.hpp>
 #include <pcl/common/common_headers.h>
@@ -31,8 +32,12 @@
 #include <pcl/features/normal_3d.h>		
 #include <pcl/visualization/point_cloud_color_handlers.h>
 #include <pcl/visualization/common/common.h>
-#include <pcl/keypoints/harris_3d.h>
 #include <pcl/keypoints/keypoint.h>
+#include <pcl/keypoints/harris_3d.h>
+#include <pcl/keypoints/sift_keypoint.h>
+#include <pcl/keypoints/iss_3d.h>
+#include <pcl/keypoints/susan.h>
+#include <pcl/filters/uniform_sampling.h>
 
 #include <pcl/registration/correspondence_rejection_sample_consensus.h>
 #include <pcl/kdtree/kdtree_flann.h>
@@ -57,12 +62,47 @@ void 	eliminatePlanes		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
 							 pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
 
 //Busqueda de Keypoints
-void 	harrisMethod		(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+void 	harrisMethodAll		(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
 							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
 							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
 							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
 							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
-pcl::PointCloud<pcl::PointXYZI>::Ptr Harris3D 		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
+void 	siftMethodAll		(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
+void 	ISSMethodAll		(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
+void 	SUSANMethodAll		(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
+void 	USMethodAll			(pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&,
+							 pcl::PointCloud<pcl::PointXYZI>::Ptr&, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
+
+
+pcl::PointCloud<pcl::PointXYZI>::Ptr Harris3D 		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&, int);
+pcl::PointCloud<pcl::PointXYZI>::Ptr Sift3D			(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&, int);
+pcl::PointCloud<pcl::PointXYZI>::Ptr ISS			(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&, int);
+pcl::PointCloud<pcl::PointXYZI>::Ptr SUSAN			(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&, int);
+pcl::PointCloud<pcl::PointXYZI>::Ptr USampling		(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&, int);
+
+
+double 		computeCloudResolution					(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr&);
+
 
 //Descriptores
 void 	kdTreeMethod		(pcl::PointCloud<pcl::PFHSignature125>::Ptr&,pcl::PointCloud<pcl::PointXYZI>::Ptr&,pcl::PointCloud<pcl::Normal>::Ptr&,
@@ -71,8 +111,10 @@ void 	kdTreeMethod		(pcl::PointCloud<pcl::PFHSignature125>::Ptr&,pcl::PointCloud
 							 pcl::PointCloud<pcl::PFHSignature125>::Ptr&,pcl::PointCloud<pcl::PointXYZI>::Ptr&,pcl::PointCloud<pcl::Normal>::Ptr&,
 							 pcl::PointCloud<pcl::PFHSignature125>::Ptr&,pcl::PointCloud<pcl::PointXYZI>::Ptr&,pcl::PointCloud<pcl::Normal>::Ptr&);
 pcl::PointCloud<pcl::Normal>::Ptr 	 		get_Normals	(pcl::PointCloud<pcl::PointXYZI>::Ptr);
-pcl::PointCloud<pcl::PFHSignature125>::Ptr 	get_Descriptors(pcl::PointCloud<pcl::PointXYZI>::Ptr, 
-															pcl::PointCloud<pcl::Normal>::Ptr);
+
+pcl::PointCloud<pcl::PFHSignature125>::Ptr 	PFH 		(pcl::PointCloud<pcl::PointXYZI>::Ptr, 
+														 pcl::PointCloud<pcl::Normal>::Ptr);
+
 
 
 //Emparejamientos

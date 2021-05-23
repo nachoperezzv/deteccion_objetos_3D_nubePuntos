@@ -109,42 +109,247 @@ void eliminatePlanes(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
 		Metodo 1: Harris 3D
 
 */
-void 	harrisMethod	(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
+void 	harrisMethodAll	(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
 						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object1, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object1_pointCloud,
 						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object2, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object2_pointCloud,
 						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object3, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object3_pointCloud,
 						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object4, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object4_pointCloud)
 {
+	
+	keypoints_scene		= Harris3D(pointCloud, 0);			
+	keypoints_object1 	= Harris3D(object1_pointCloud, 1);
+	keypoints_object2 	= Harris3D(object2_pointCloud, 2);	
+	keypoints_object3 	= Harris3D(object3_pointCloud, 3);	
+	keypoints_object4 	= Harris3D(object4_pointCloud, 4);	
+	
+}
+
+void 	siftMethodAll	(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object1, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object1_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object2, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object2_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object3, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object3_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object4, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object4_pointCloud)
+{
+
+	keypoints_scene		= Sift3D(pointCloud, 0);			
+	keypoints_object1 	= Sift3D(object1_pointCloud, 1);
+	keypoints_object2 	= Sift3D(object2_pointCloud, 2);	
+	keypoints_object3 	= Sift3D(object3_pointCloud, 3);	
+	keypoints_object4 	= Sift3D(object4_pointCloud, 4);	
+}
+
+void 	ISSMethodAll	(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object1, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object1_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object2, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object2_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object3, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object3_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object4, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object4_pointCloud)
+{
+	keypoints_scene		= ISS(pointCloud, 0);			
+	keypoints_object1 	= ISS(object1_pointCloud, 1);
+	keypoints_object2 	= ISS(object2_pointCloud, 2);	
+	keypoints_object3 	= ISS(object3_pointCloud, 3);	
+	keypoints_object4 	= ISS(object4_pointCloud, 4);
+}
+
+void 	SUSANMethodAll	(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object1, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object1_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object2, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object2_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object3, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object3_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object4, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object4_pointCloud)
+{
+	keypoints_scene		= SUSAN(pointCloud, 0);			
+	keypoints_object1 	= SUSAN(object1_pointCloud, 1);
+	keypoints_object2 	= SUSAN(object2_pointCloud, 2);	
+	keypoints_object3 	= SUSAN(object3_pointCloud, 3);	
+	keypoints_object4 	= SUSAN(object4_pointCloud, 4);
+}
+
+void 	USMethodAll		(pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_scene,   pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object1, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object1_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object2, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object2_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object3, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object3_pointCloud,
+						 pcl::PointCloud<pcl::PointXYZI>::Ptr& keypoints_object4, pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& object4_pointCloud)
+{
+	keypoints_scene		= USampling(pointCloud, 0);			
+	keypoints_object1 	= USampling(object1_pointCloud, 1);
+	keypoints_object2 	= USampling(object2_pointCloud, 2);	
+	keypoints_object3 	= USampling(object3_pointCloud, 3);	
+	keypoints_object4 	= USampling(object4_pointCloud, 4);
+}
+
+pcl::PointCloud<pcl::PointXYZI>::Ptr Harris3D(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud, int c){
+	
 	auto start = std::chrono::system_clock::now();
 
-	keypoints_scene		= Harris3D(pointCloud);			
-	keypoints_object1 	= Harris3D(object1_pointCloud);
-	keypoints_object2 	= Harris3D(object2_pointCloud);	
-	keypoints_object3 	= Harris3D(object3_pointCloud);	
-	keypoints_object4 	= Harris3D(object4_pointCloud);	
+	pcl::HarrisKeypoint3D<pcl::PointXYZRGBA,pcl::PointXYZI> detector;
+	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
+	
+	detector.setInputCloud(point_cloud);	 
+	detector.setNonMaxSupression(true);
+	detector.setRadius(0.01);
+	detector.compute(*keypoints);
+
+	auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float,std::milli> duration = end - start;
+	if(c)
+		cout << endl << "KeyPoints objeto " << c << " calculados " << keypoints->size() << endl;
+	else
+		cout << endl << "KeyPoints escena calculados " << keypoints->size() << endl;
+	cout << "Coste de procesamiento: ";		
+	cout << duration.count() << " ms" << endl;
+  
+
+	return keypoints;
+}
+
+pcl::PointCloud<pcl::PointXYZI>::Ptr Sift3D(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud, int c){
+	const float min_scale = 0.01f;
+	const int n_octaves = 6;
+	const int n_scales_per_octave = 10;
+	const float min_contrast = 0.3f;
+	
+	auto start = std::chrono::system_clock::now();
+
+	pcl::SIFTKeypoint<pcl::PointXYZRGBA,pcl::PointXYZI> detector;
+	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
+	
+	detector.setInputCloud(point_cloud);	
+	detector.setMinimumContrast(0.3);
+	detector.setScales(min_scale, n_octaves, n_scales_per_octave);
+	detector.setMinimumContrast(min_contrast);	 
+	detector.compute(*keypoints); 
 	
 	auto end = std::chrono::system_clock::now();
 	std::chrono::duration<float,std::milli> duration = end - start;
-
-	cout << endl << "KeyPoints calculados" << endl;
+	if(c)
+		cout << endl << "KeyPoints objeto " << c << " calculados " << keypoints->size() << endl;
+	else
+		cout << endl << "KeyPoints escena calculados " << keypoints->size() << endl;
 	cout << "Coste de procesamiento: ";		
 	cout << duration.count() << " ms" << endl;
-}
 
-pcl::PointCloud<pcl::PointXYZI>::Ptr Harris3D(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud){
-	
-	pcl::HarrisKeypoint3D<pcl::PointXYZRGBA,pcl::PointXYZI> detector;
-	detector.setNonMaxSupression(true);
-	detector.setRadius(0.01);
-	detector.setInputCloud(point_cloud);
-	
-	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
-	 
-	detector.compute(*keypoints);
   
 	return keypoints;
 }
 
+pcl::PointCloud<pcl::PointXYZI>::Ptr ISS(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud, int c){
+	
+	ISSKeypoint3D<pcl::PointXYZRGBA,pcl::PointXYZI> detector;
+	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
+    search::KdTree<pcl::PointXYZRGBA>::Ptr kdtree(new search::KdTree<pcl::PointXYZRGBA>);
+    
+    double resolution = computeCloudResolution(point_cloud);
+    
+    auto start = std::chrono::system_clock::now();
+
+    detector.setInputCloud(point_cloud);
+    detector.setSearchMethod(kdtree);
+    detector.setSalientRadius(6 * resolution);
+    detector.setNonMaxRadius(4 * resolution);
+    detector.setMinNeighbors(5);
+    detector.setThreshold21(0.975);
+    detector.setThreshold32(0.975);
+    detector.compute(*keypoints);
+
+
+    auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float,std::milli> duration = end - start;
+	if(c)
+		cout << endl << "KeyPoints objeto " << c << " calculados " << keypoints->size() << endl;
+	else
+		cout << endl << "KeyPoints escena calculados " << keypoints->size() << endl;
+	cout << "Coste de procesamiento: ";		
+	cout << duration.count() << " ms" << endl;
+
+    return keypoints;
+}
+
+pcl::PointCloud<pcl::PointXYZI>::Ptr SUSAN(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud, int c){
+
+	SUSANKeypoint<pcl::PointXYZRGBA,pcl::PointXYZI>::Ptr detector(new SUSANKeypoint<PointXYZRGBA,PointXYZI>);
+	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
+
+	auto start = std::chrono::system_clock::now();
+
+
+	detector->setInputCloud(point_cloud);
+	detector->setNonMaxSupression(true);
+	detector->compute(*keypoints);
+
+
+	auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float,std::milli> duration = end - start;
+	if(c)
+		cout << endl << "KeyPoints objeto " << c << " calculados " << keypoints->size() << endl;
+	else
+		cout << endl << "KeyPoints escena calculados " << keypoints->size() << endl;
+	cout << "Coste de procesamiento: ";		
+	cout << duration.count() << " ms" << endl;
+
+	return keypoints;
+}
+
+pcl::PointCloud<pcl::PointXYZI>::Ptr USampling (pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& point_cloud, int c){
+
+	UniformSampling<pcl::PointXYZRGB> detector;
+    PointCloud<int>::Ptr _k(new PointCloud<int>);
+	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints(new pcl::PointCloud<pcl::PointXYZI>());
+
+	auto start = std::chrono::system_clock::now();
+
+
+	detector.setRadiusSearch(0.05);
+    detector.setInputCloud(point_cloud);
+    detector.compute(*_k); 
+
+    keypoints->reset(new pcl::PointXYZRGB);
+    for (size_t i=0; i<_k->points.size (); ++i)
+      keypoints->points.push_back(point_cloud->points[_k->points[i]]);
+
+
+
+	auto end = std::chrono::system_clock::now();
+	std::chrono::duration<float,std::milli> duration = end - start;
+	if(c)
+		cout << endl << "KeyPoints objeto " << c << " calculados " << keypoints->size() << endl;
+	else
+		cout << endl << "KeyPoints escena calculados " << keypoints->size() << endl;
+	cout << "Coste de procesamiento: ";		
+	cout << duration.count() << " ms" << endl;
+
+	return keypoints;
+}
+
+
+
+
+double computeCloudResolution(pcl::PointCloud<pcl::PointXYZRGBA>::Ptr& cloud){
+	double resolution = 0.0;
+	int numberOfPoints = 0;
+	int nres;
+	vector<int> indices(2);
+	vector<float> squaredDistances(2);
+	search::KdTree<pcl::PointXYZRGBA> tree;
+	tree.setInputCloud(cloud);
+
+	for (size_t i = 0; i < cloud->size(); ++i)
+	{
+	if (! pcl_isfinite((*cloud)[i].x))
+	  continue;
+
+	// Considering the second neighbor since the first is the point itself.
+	nres = tree.nearestKSearch(i, 2, indices, squaredDistances);
+	if (nres == 2)
+	{
+	  resolution += sqrt(squaredDistances[1]);
+	  ++numberOfPoints;
+	}
+	}
+	if (numberOfPoints != 0)
+	resolution /= numberOfPoints;
+
+	return resolution;
+}
 
 /*		BUSQUEDA DE DESCRIPTORES
 
@@ -178,11 +383,11 @@ void kdTreeMethod(pcl::PointCloud<pcl::PFHSignature125>::Ptr& scene_descriptors,
 {
 	auto start = std::chrono::system_clock::now();
 
-	scene_descriptors   = get_Descriptors(keypoints_scene,scene_normals);		  
-	object1_descriptors = get_Descriptors(keypoints_object1,object1_normals); 
-	object2_descriptors = get_Descriptors(keypoints_object2,object2_normals); 
-	object3_descriptors = get_Descriptors(keypoints_object3,object3_normals); 
-	object4_descriptors = get_Descriptors(keypoints_object4,object4_normals); 
+	scene_descriptors   = PFH(keypoints_scene,scene_normals);		  
+	object1_descriptors = PFH(keypoints_object1,object1_normals); 
+	object2_descriptors = PFH(keypoints_object2,object2_normals); 
+	object3_descriptors = PFH(keypoints_object3,object3_normals); 
+	object4_descriptors = PFH(keypoints_object4,object4_normals); 
 
 	auto end = std::chrono::system_clock::now();
 	std::chrono::duration<float,std::milli> duration = end - start;
@@ -192,7 +397,7 @@ void kdTreeMethod(pcl::PointCloud<pcl::PFHSignature125>::Ptr& scene_descriptors,
 	cout << duration.count() << " ms" << endl;
 }
 
-pcl::PointCloud<pcl::PFHSignature125>::Ptr get_Descriptors(pcl::PointCloud<pcl::PointXYZI>::Ptr point_cloud, pcl::PointCloud<pcl::Normal>::Ptr normals){
+pcl::PointCloud<pcl::PFHSignature125>::Ptr PFH(pcl::PointCloud<pcl::PointXYZI>::Ptr point_cloud, pcl::PointCloud<pcl::Normal>::Ptr normals){
 	
 	pcl::PFHEstimation<pcl::PointXYZI, pcl::Normal, pcl::PFHSignature125> pfh;// dispositivo de estimación de características phf
 	pfh.setInputCloud(point_cloud);

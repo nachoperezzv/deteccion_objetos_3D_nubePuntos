@@ -52,11 +52,23 @@ int main(int argc, char** argv){
 	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints_object2(new pcl::PointCloud<pcl::PointXYZI>());
 	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints_object3(new pcl::PointCloud<pcl::PointXYZI>());
 	pcl::PointCloud<pcl::PointXYZI>::Ptr keypoints_object4(new pcl::PointCloud<pcl::PointXYZI>());
-	harrisMethod(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
-				 keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
-				 keypoints_object4, object4_pointCloud);
+	/*harrisMethodAll	(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
+				     keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
+				     keypoints_object4, object4_pointCloud);*/
+	/*siftMethodAll	(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
+				     keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
+				     keypoints_object4, object4_pointCloud);*/
+	/*ISSMethodAll	(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
+				     keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
+				     keypoints_object4, object4_pointCloud);*/
+	/*SUSANMethodAll 	(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
+				     keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
+				     keypoints_object4, object4_pointCloud);*/
+	USMethodAll		(keypoints_scene,   pointCloud,         keypoints_object1, object1_pointCloud, 
+				     keypoints_object2, object2_pointCloud, keypoints_object3, object3_pointCloud, 
+				     keypoints_object4, object4_pointCloud);
 
-
+	
 	// Extraccion de los descriptores
 	pcl::PointCloud<pcl::Normal>::Ptr scene_normals;	scene_normals   = get_Normals(keypoints_scene);
 	pcl::PointCloud<pcl::Normal>::Ptr object1_normals;  object1_normals = get_Normals(keypoints_object1);
@@ -79,15 +91,15 @@ int main(int argc, char** argv){
 
 
 	// Emparejamientos y Descarte de emparejamientos incorrectos
-	pcl::CorrespondencesPtr matches_corrected_obj1 (new pcl::Correspondences ());	Eigen::Matrix4f trans1;
-	pcl::CorrespondencesPtr matches_corrected_obj2 (new pcl::Correspondences ());	Eigen::Matrix4f trans2;
+	//pcl::CorrespondencesPtr matches_corrected_obj1 (new pcl::Correspondences ());	Eigen::Matrix4f trans1;
+	//pcl::CorrespondencesPtr matches_corrected_obj2 (new pcl::Correspondences ());	Eigen::Matrix4f trans2;
 	pcl::CorrespondencesPtr matches_corrected_obj3 (new pcl::Correspondences ());	Eigen::Matrix4f trans3;
-	pcl::CorrespondencesPtr matches_corrected_obj4 (new pcl::Correspondences ());	Eigen::Matrix4f trans4;
+	//pcl::CorrespondencesPtr matches_corrected_obj4 (new pcl::Correspondences ());	Eigen::Matrix4f trans4;
 	
-	matches_corrected_obj1 = match_Keypoints(scene_descriptors, object1_descriptors, keypoints_scene, keypoints_object1, trans1, 1);	
+	//matches_corrected_obj1 = match_Keypoints(scene_descriptors, object1_descriptors, keypoints_scene, keypoints_object1, trans1, 1);	
 	//matches_corrected_obj2 = match_Keypoints(scene_descriptors, object2_descriptors, keypoints_scene, keypoints_object2, trans2, 2);
-	//matches_corrected_obj2 = match_Keypoints(scene_descriptors, object3_descriptors, keypoints_scene, keypoints_object3, trans3, 3);
-	//matches_corrected_obj2 = match_Keypoints(scene_descriptors, object4_descriptors, keypoints_scene, keypoints_object4, trans4, 4);
+	matches_corrected_obj3 = match_Keypoints(scene_descriptors, object3_descriptors, keypoints_scene, keypoints_object3, trans3, 3);
+	//matches_corrected_obj4 = match_Keypoints(scene_descriptors, object4_descriptors, keypoints_scene, keypoints_object4, trans4, 4);
 
 
 	// Refinamiento del resultado con ICP
@@ -95,15 +107,13 @@ int main(int argc, char** argv){
 	pcl::IterativeClosestPoint<pcl::PointXYZRGBA, pcl::PointXYZRGBA> icp;
 	Eigen::Matrix4f bestTrans;
 
-	refinar(icp, pointCloud, object1_pointCloud, auxCloud, bestTrans);
+	//refinar(icp, pointCloud, object1_pointCloud, auxCloud, bestTrans);
 	//refinar(icp, pointCloud, object2_pointCloud, auxCloud, bestTrans);
-	//refinar(icp, pointCloud, object3_pointCloud, auxCloud, bestTrans);
+	refinar(icp, pointCloud, object3_pointCloud, auxCloud, bestTrans);
 	//refinar(icp, pointCloud, object4_pointCloud, auxCloud, bestTrans);
 
 
-
-
-	showCloud(originalCloud,auxCloud);
+	//showCloud(originalCloud,auxCloud);
 
 
 	return 0;
