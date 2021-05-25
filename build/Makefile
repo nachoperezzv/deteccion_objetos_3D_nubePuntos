@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2"
+CMAKE_SOURCE_DIR = /home/ipv000/Descargas/PRACTICA2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build"
+CMAKE_BINARY_DIR = /home/ipv000/Descargas/PRACTICA2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles" "/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ipv000/Descargas/PRACTICA2/build/CMakeFiles /home/ipv000/Descargas/PRACTICA2/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/ipv000/Documentos/SISTEMAS DE PERCEPCION/PRACTICAS/PRACTICA2/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ipv000/Descargas/PRACTICA2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,33 +123,6 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-functions.o: functions.cpp.o
-
-.PHONY : functions.o
-
-# target to build an object file
-functions.cpp.o:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/functions.cpp.o
-.PHONY : functions.cpp.o
-
-functions.i: functions.cpp.i
-
-.PHONY : functions.i
-
-# target to preprocess a source file
-functions.cpp.i:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/functions.cpp.i
-.PHONY : functions.cpp.i
-
-functions.s: functions.cpp.s
-
-.PHONY : functions.s
-
-# target to generate assembly for a file
-functions.cpp.s:
-	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/functions.cpp.s
-.PHONY : functions.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -177,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+pipeline.o: pipeline.cpp.o
+
+.PHONY : pipeline.o
+
+# target to build an object file
+pipeline.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pipeline.cpp.o
+.PHONY : pipeline.cpp.o
+
+pipeline.i: pipeline.cpp.i
+
+.PHONY : pipeline.i
+
+# target to preprocess a source file
+pipeline.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pipeline.cpp.i
+.PHONY : pipeline.cpp.i
+
+pipeline.s: pipeline.cpp.s
+
+.PHONY : pipeline.s
+
+# target to generate assembly for a file
+pipeline.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/pipeline.cpp.s
+.PHONY : pipeline.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +186,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... main"
 	@echo "... edit_cache"
-	@echo "... functions.o"
-	@echo "... functions.i"
-	@echo "... functions.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... pipeline.o"
+	@echo "... pipeline.i"
+	@echo "... pipeline.s"
 .PHONY : help
 
 

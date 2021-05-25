@@ -11,5 +11,5 @@ INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
-add_executable (main main.cpp functions.cpp)
+add_executable (main main.cpp pipeline.cpp)
 target_link_libraries (main ${PCL_LIBRARIES} ${OpenCV_LIBS} ${Boost_LIBRARIES})
